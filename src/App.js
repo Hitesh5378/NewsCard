@@ -1,24 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import Sidebar from './components/Sidebar';
+import NewsGrid from './components/NewsGrid';
+import { useState } from 'react';
+import { NewsProvider } from './context/NewsContext';
 
 function App() {
+  const [viewType, setViewType] = useState('list');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <NewsProvider>
+      <div style={{display:"flex", height: "100vh",backgroundColor: "#dfe5e7ff"}} >
+        <Sidebar onViewChange={setViewType}/>
+        <NewsGrid viewType={viewType} />
+      </div>
+    </NewsProvider>
   );
 }
 
