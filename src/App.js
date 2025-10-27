@@ -1,5 +1,3 @@
-import logo from './logo.svg';
-import './App.css';
 import Sidebar from './components/Sidebar';
 import NewsGrid from './components/NewsGrid';
 import { useState } from 'react';
